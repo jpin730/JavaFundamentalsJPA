@@ -13,6 +13,14 @@ public class PersistenceController {
         studentJpaController.create(student);
     }
 
+    public void editStudent(Student student) {
+        try {
+            studentJpaController.edit(student);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void deleteStudent(int id) {
         try {
             studentJpaController.destroy(id);
