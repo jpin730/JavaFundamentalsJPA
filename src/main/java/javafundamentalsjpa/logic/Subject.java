@@ -1,30 +1,25 @@
 package javafundamentalsjpa.logic;
 
-import java.util.LinkedList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
-public class Career {
+public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
+
     private String name;
 
-    @OneToMany
-    private LinkedList<Subject> subjects;
-
-    public Career() {
+    public Subject() {
     }
 
-    public Career(int id, String name, LinkedList<Subject> subjects) {
+    public Subject(int id, String name) {
         this.id = id;
         this.name = name;
-        this.subjects = subjects;
     }
 
     public int getId() {
@@ -41,14 +36,6 @@ public class Career {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LinkedList<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(LinkedList<Subject> subjects) {
-        this.subjects = subjects;
     }
 
 }
