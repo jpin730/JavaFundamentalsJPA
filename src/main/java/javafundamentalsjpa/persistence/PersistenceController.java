@@ -1,5 +1,7 @@
 package javafundamentalsjpa.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafundamentalsjpa.logic.Student;
@@ -8,6 +10,11 @@ import javafundamentalsjpa.persistence.exceptions.NonexistentEntityException;
 public class PersistenceController {
 
     StudentJpaController studentJpaController = new StudentJpaController();
+
+    public ArrayList<Student> getAllStudents() {
+        List<Student> studentList = studentJpaController.findStudentEntities();
+        return new ArrayList<>(studentList);
+    }
 
     public Student getStudent(int id) {
         return studentJpaController.findStudent(id);
