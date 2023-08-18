@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -15,20 +16,26 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Basic
     private String firstName;
     private String lastName;
+
     @Temporal(TemporalType.DATE)
     private Date birthdate;
+
+    @OneToOne
+    private Career career;
 
     public Student() {
     }
 
-    public Student(Integer id, String firstName, String lastName, Date birthdate) {
+    public Student(Integer id, String firstName, String lastName, Date birthdate, Career career) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
+        this.career = career;
     }
 
     public Integer getId() {
@@ -61,6 +68,14 @@ public class Student {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public Career getCareer() {
+        return career;
+    }
+
+    public void setCareer(Career career) {
+        this.career = career;
     }
 
     @Override
