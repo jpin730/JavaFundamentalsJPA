@@ -1,12 +1,16 @@
 package javafundamentalsjpa;
 
-import javafundamentalsjpa.persistence.PersistenceController;
+import java.util.Date;
+import javafundamentalsjpa.logic.Controller;
+import javafundamentalsjpa.logic.Student;
 
 public class Main {
 
     public static void main(String[] args) {
-        PersistenceController persistenceController = new PersistenceController();
+        Controller controller = new Controller();
 
-        System.out.println(persistenceController);
+        Student student = new Student(10, "John", "Doe", new Date());
+
+        controller.createStudent(student);
     }
 }
