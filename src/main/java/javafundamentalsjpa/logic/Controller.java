@@ -27,4 +27,24 @@ public class Controller {
         persistenceController.deleteStudent(id);
     }
 
+    public ArrayList<Career> getAllSCareer() {
+        return persistenceController.getAllCareers();
+    }
+
+    public Career getCareer(int id) {
+        return persistenceController.getCareer(id);
+    }
+
+    public void creatCareer(Career career) {
+        persistenceController.createCareer(career);
+    }
+
+    public void editCareer(Career career) {
+        persistenceController.editCareer(career);
+    }
+
+    public void deleteCareer(int id) {
+        persistenceController.deleteCareer(id);
+    }
+
 }
