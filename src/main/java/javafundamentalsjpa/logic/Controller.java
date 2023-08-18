@@ -6,6 +6,10 @@ public class Controller {
 
     PersistenceController persistenceController = new PersistenceController();
 
+    public Student getStudent(int id) {
+        return persistenceController.getStudent(id);
+    }
+
     public void createStudent(Student student) {
         persistenceController.createStudent(student);
     }
@@ -17,4 +21,5 @@ public class Controller {
     public void deleteStudent(int id) {
         persistenceController.deleteStudent(id);
     }
+
 }

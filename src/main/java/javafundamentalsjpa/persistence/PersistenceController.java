@@ -9,6 +9,10 @@ public class PersistenceController {
 
     StudentJpaController studentJpaController = new StudentJpaController();
 
+    public Student getStudent(int id) {
+        return studentJpaController.findStudent(id);
+    }
+
     public void createStudent(Student student) {
         studentJpaController.create(student);
     }
@@ -28,5 +32,4 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
