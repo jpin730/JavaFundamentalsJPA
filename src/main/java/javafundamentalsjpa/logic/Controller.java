@@ -10,4 +10,7 @@ public class Controller {
         persistenceController.createStudent(student);
     }
 
+    public void deleteStudent(int id) {
+        persistenceController.deleteStudent(id);
+    }
 }
