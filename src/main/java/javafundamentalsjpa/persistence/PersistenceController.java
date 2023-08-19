@@ -6,12 +6,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafundamentalsjpa.logic.Career;
 import javafundamentalsjpa.logic.Student;
+import javafundamentalsjpa.logic.Subject;
 import javafundamentalsjpa.persistence.exceptions.NonexistentEntityException;
 
 public class PersistenceController {
 
     StudentJpaController studentJpaController = new StudentJpaController();
     CareerJpaController careerJpaController = new CareerJpaController();
+    SubjectJpaController subjectJpaController = new SubjectJpaController();
 
     public ArrayList<Student> getAllStudents() {
         List<Student> studentList = studentJpaController.findStudentEntities();
@@ -66,6 +68,35 @@ public class PersistenceController {
     public void deleteCareer(int id) {
         try {
             careerJpaController.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public ArrayList<Subject> getAllSubjects() {
+        List<Subject> subjectList = subjectJpaController.findSubjectEntities();
+        return new ArrayList<>(subjectList);
+    }
+
+    public Subject getSubject(int id) {
+        return subjectJpaController.findSubject(id);
+    }
+
+    public void createSubject(Subject subject) {
+        subjectJpaController.create(subject);
+    }
+
+    public void editSubject(Subject subject) {
+        try {
+            subjectJpaController.edit(subject);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deleteSubject(int id) {
+        try {
+            subjectJpaController.destroy(id);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
