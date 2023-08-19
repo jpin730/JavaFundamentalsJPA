@@ -15,14 +15,13 @@ public class Career {
     private int id;
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "career")
     private LinkedList<Subject> subjects;
 
     public Career() {
     }
 
-    public Career(int id, String name, LinkedList<Subject> subjects) {
-        this.id = id;
+    public Career(String name, LinkedList<Subject> subjects) {
         this.name = name;
         this.subjects = subjects;
     }
@@ -49,6 +48,11 @@ public class Career {
 
     public void setSubjects(LinkedList<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    @Override
+    public String toString() {
+        return "Career{" + "id=" + id + ", name=" + name + ", subjects=" + subjects + '}';
     }
 
 }

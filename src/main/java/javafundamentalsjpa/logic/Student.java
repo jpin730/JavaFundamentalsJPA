@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Basic
@@ -30,8 +30,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer id, String firstName, String lastName, Date birthdate, Career career) {
-        this.id = id;
+    public Student(String firstName, String lastName, Date birthdate, Career career) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
